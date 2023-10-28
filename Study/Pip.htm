@@ -1,0 +1,532 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Pip</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>PIP</h1>
+<h1>#更新命令</h1>
+<pre><code>python.exe -m pip install --upgrade pip
+</code></pre>
+
+<h2>使用说明</h2>
+<h2>Commands:</h2>
+<table>
+<thead>
+<tr>
+	<th align="left">名称</th>
+	<th align="left">介绍</th>
+	<th align="left">中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">install</td>
+	<td align="left">Install packages</td>
+	<td align="left">安装包</td>
+</tr>
+<tr>
+	<td align="left">download</td>
+	<td align="left">Download packages</td>
+	<td align="left">下载包</td>
+</tr>
+<tr>
+	<td align="left">uninstall</td>
+	<td align="left">Uninstall packages</td>
+	<td align="left">卸载包</td>
+</tr>
+<tr>
+	<td align="left">freeze</td>
+	<td align="left">Output installed packages in requirements format</td>
+	<td align="left">以需求格式输出已安装的包</td>
+</tr>
+<tr>
+	<td align="left">inspect</td>
+	<td align="left">Inspect the python environment</td>
+	<td align="left">检查 python 环境</td>
+</tr>
+<tr>
+	<td align="left">list</td>
+	<td align="left">List installed packages</td>
+	<td align="left">列出已安装的包</td>
+</tr>
+<tr>
+	<td align="left">show</td>
+	<td align="left">Show information about installed packages</td>
+	<td align="left">显示有关已安装软件包的信息</td>
+</tr>
+<tr>
+	<td align="left">check</td>
+	<td align="left">Verify installed packages have compatible dependencies</td>
+	<td align="left">检查验证已安装的包是否具有兼容的依赖项</td>
+</tr>
+<tr>
+	<td align="left">config</td>
+	<td align="left">Manage local and global configuration</td>
+	<td align="left">管理本地和全局配置</td>
+</tr>
+<tr>
+	<td align="left">search</td>
+	<td align="left">Search PyPI for packages</td>
+	<td align="left">在PyPI中搜索程序包</td>
+</tr>
+<tr>
+	<td align="left">cache</td>
+	<td align="left">Inspect and manage pip's wheel cache</td>
+	<td align="left">检查和管理pip的车轮缓存</td>
+</tr>
+<tr>
+	<td align="left">index</td>
+	<td align="left">Inspect information available from package indexes</td>
+	<td align="left">检查程序包索引中的可用信息</td>
+</tr>
+<tr>
+	<td align="left">wheel</td>
+	<td align="left">Build wheels from your requirements</td>
+	<td align="left">根据您的需求打造车轮</td>
+</tr>
+<tr>
+	<td align="left">hash</td>
+	<td align="left">Compute hashes of package archives</td>
+	<td align="left">计算包存档的哈希</td>
+</tr>
+<tr>
+	<td align="left">completion</td>
+	<td align="left">A helper command used for command completion</td>
+	<td align="left">用于完成命令的助手命令</td>
+</tr>
+<tr>
+	<td align="left">debug</td>
+	<td align="left">Show information useful for debugging.</td>
+	<td align="left">显示对调试有用的信息。</td>
+</tr>
+<tr>
+	<td align="left">help</td>
+	<td align="left">Show help for commands</td>
+	<td align="left">显示命令的帮助</td>
+</tr>
+</tbody>
+</table>
+<h2>General Options:</h2>
+<table>
+<thead>
+<tr>
+	<th align="left">名称</th>
+	<th align="left">介绍</th>
+	<th align="left">中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">-h, --help</td>
+	<td align="left">Show help</td>
+	<td align="left">显示帮助</td>
+</tr>
+<tr>
+	<td align="left">--debug</td>
+	<td align="left">Let unhandled exceptions propagate outside the main subroutine, instead of logging them to stderr</td>
+	<td align="left">让未处理的异常在主子程序之外传播，而不是将它们记录到stderr</td>
+</tr>
+<tr>
+	<td align="left">--isolated</td>
+	<td align="left">Run pip in an isolated mode, ignoring environment variables and user configuration</td>
+	<td align="left">在隔离模式下运行pip，忽略环境变量和用户配置</td>
+</tr>
+<tr>
+	<td align="left">--require-virtualenv</td>
+	<td align="left">Allow pip to only run in a virtual environment; exit with an error otherwise.</td>
+	<td align="left">允许pip只在虚拟环境中运行；否则将退出并返回错误。</td>
+</tr>
+<tr>
+	<td align="left">--python <python></td>
+	<td align="left">Run pip with the specified Python interpreter.</td>
+	<td align="left">允许pip只在虚拟环境中运行；否则将退出并返回错误。</td>
+</tr>
+<tr>
+	<td align="left">-v, --verbose</td>
+	<td align="left">Give more output. Option is additive, and can be used up to 3 times</td>
+	<td align="left">提供更多输出。选项为添加选项，最多可使用3次</td>
+</tr>
+<tr>
+	<td align="left">-V, --version</td>
+	<td align="left">how version and exit.</td>
+	<td align="left">如何版本和退出。</td>
+</tr>
+<tr>
+	<td align="left">-q, --quiet</td>
+	<td align="left">Give less output. Option is additive, and can be used up to 3 times (corresponding to WARNING, ERROR, and CRITICAL logging levels)</td>
+	<td align="left">输出更少。选项是可添加的，最多可使用3次（对应于WARNING、ERROR和CRITICAL日志记录级别）</td>
+</tr>
+<tr>
+	<td align="left">--log <path></td>
+	<td align="left">Path to a verbose appending log.</td>
+	<td align="left">详细附加日志的路径。</td>
+</tr>
+<tr>
+	<td align="left">--no-input</td>
+	<td align="left">Disable prompting for input.</td>
+	<td align="left">禁用输入提示。</td>
+</tr>
+<tr>
+	<td align="left">--proxy <proxy></td>
+	<td align="left">Specify a proxy in the form scheme://[user:passwd@]proxy.server:port</td>
+	<td align="left">以scheme://[user:passwd@]proxy.server:port的形式指定代理</td>
+</tr>
+<tr>
+	<td align="left">--retries <retries></td>
+	<td align="left">Maximum number of retries each connection should attempt (default 5 times)</td>
+	<td align="left">每个连接应尝试的最大重试次数（默认为5次）</td>
+</tr>
+<tr>
+	<td align="left">--timeout <sec></td>
+	<td align="left">Set the socket timeout (default 15 seconds)</td>
+	<td align="left">设置套接字超时（默认为15秒）</td>
+</tr>
+<tr>
+	<td align="left">--exists-action <action></td>
+	<td align="left">Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup,(a)bort</td>
+	<td align="left">路径已存在时的默认操作：（s）witch，（i）gnore，（w）ipe，（b）ackup，（a）bort</td>
+</tr>
+<tr>
+	<td align="left">--trusted-host <hostname></td>
+	<td align="left">Mark this host or host:port pair as trusted, even though it does not have valid or any HTTPS.</td>
+	<td align="left">将此主机或host:port对标记为受信任，即使它没有有效的HTTPS或任何HTTPS。</td>
+</tr>
+<tr>
+	<td align="left">--cert<path></td>
+	<td align="left">Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL Certificate Verification' in pip documentation for more information</td>
+	<td align="left">将此主机或host:port对标记为受信任，即使它没有有效的HTTPS或任何HTTPS。</td>
+</tr>
+<tr>
+	<td align="left">--client-cert <path></td>
+	<td align="left">Path to SSL client certificate, a single file containing the private key and the certificate in PEM format</td>
+	<td align="left">SSL客户端证书的路径，包含私钥和PEM格式证书的单个文件</td>
+</tr>
+<tr>
+	<td align="left">--cache-dir <dir></td>
+	<td align="left">Store the cache data in <dir></td>
+	<td align="left">将缓存数据存储在＜dir＞中</td>
+</tr>
+<tr>
+	<td align="left">--no-cache-dir</td>
+	<td align="left">Disable the cache.</td>
+	<td align="left">禁用缓存。</td>
+</tr>
+<tr>
+	<td align="left">--disable-pip-version-check</td>
+	<td align="left">Don't periodically check PyPI to determine whether a new version of pip is available for download. Implied with --no-index.</td>
+	<td align="left">不要定期检查PyPI来确定是否有新版本的pip可供下载。隐含--无索引。</td>
+</tr>
+<tr>
+	<td align="left">--no-color</td>
+	<td align="left">Suppress colored output</td>
+	<td align="left">抑制彩色输出</td>
+</tr>
+<tr>
+	<td align="left">--no-python-version-warning</td>
+	<td align="left">Silence deprecation warnings for upcoming unsupported Pythons.2</td>
+	<td align="left">对即将推出的不受支持的Python发出静音弃用警告。2</td>
+</tr>
+<tr>
+	<td align="left">--use-feature <feature></td>
+	<td align="left">Enable new functionality, that may be backward incompatible.</td>
+	<td align="left">启用可能向后不兼容的新功能。</td>
+</tr>
+<tr>
+	<td align="left">--use-deprecated <feature></td>
+	<td align="left">Enable deprecated functionality, that will be removed in the future.</td>
+	<td align="left">启用不推荐使用的功能，这些功能将来将被删除。</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

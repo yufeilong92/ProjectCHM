@@ -1,0 +1,736 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>BeautifulSoup4</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>BeautifulSoup4</h1>
+<p><A 
+href="https://www.crummy.com/software/BeautifulSoup/" target=_blank >BeautifulSoup 
+</A> 提供一些简单的、Python 式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据，因为简单，所以不需要多少代码就可以写出一个完整的应用程序。 BeautifulSoup 自动将输入文档转换为 Unicode 编码，输出文档转换为 utf-8 编码。你不需要考虑编码方式，除非文档没有指定一个编码方式，这时你仅仅需要说明一下原始编码方式就可以了。 BeautifulSoup 已成为和 lxml、html5lib 一样出色的 Python 解释器，为用户灵活地提供不同的解析策略或强劲的速度</p>
+<h2>安装</h2>
+<pre><code>pip install beautifulsoup4
+</code></pre>
+
+<h2>解析器</h2>
+<table>
+<thead>
+<tr>
+	<th align="left">解析器</th>
+	<th align="left">使用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">python标准库</td>
+	<td align="left">BeautifulSoup（markup,‘html.parser’ ）</td>
+</tr>
+<tr>
+	<td align="left">lxml HTML解析器</td>
+	<td align="left">BeautifulSoup（markup,‘lxml’）</td>
+</tr>
+<tr>
+	<td align="left">lxml XML解析器</td>
+	<td align="left">BeautifulSoup（markup,‘xml’）</td>
+</tr>
+<tr>
+	<td align="left">html5lib</td>
+	<td align="left">BeautifulSoup（markup,‘html5lib’</td>
+</tr>
+</tbody>
+</table>
+<h2>BeautifulSoup类的基本元素</h2>
+<table>
+<thead>
+<tr>
+	<th align="left">基本元素</th>
+	<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td align="left">Tag</td>
+	<td align="left">标签，最基本的信息组织元素，分别用&lt;&gt;和&lt;/&gt; 标明开头和结尾</td>
+</tr>
+<tr>
+	<td align="left">Name</td>
+	<td align="left">标签的名字，/p&gt;.../p&gt; 的名字是“p”，格式<tag>.name</td>
+</tr>
+<tr>
+	<td align="left">Attributes</td>
+	<td align="left">标签的属性，字典形式组织，格式：<tag>.attrs</td>
+</tr>
+<tr>
+	<td align="left">NavigableString</td>
+	<td align="left">标签内非属性字符串，&lt;&gt;&lt;&gt;中字符串，格式：<tag>.string</td>
+</tr>
+<tr>
+	<td align="left">Comment</td>
+	<td align="left">标签内字符串的注释部分，一种特殊的Comment类型</td>
+</tr>
+</tbody>
+</table>
+<h2>使用</h2>
+<p>导入模块</p>
+<pre><code>from bs4 import BeautifulSoup
+</code></pre>
+
+<p>设置解析器，传递需要解析的html文档</p>
+<pre><code>soup = BeautifulSoup(html,'lxml')
+</code></pre>
+
+<p>格式化代码
+	soup.prettify()
+查看title标签内的文本
+	soup.title.string</p>
+<p>示例</p>
+<pre><code>&gt;&gt;from bs4 import BeautifulSoup
+&gt;&gt;soup = BeautifulSoup('&lt;p&gt;Hello&lt;/p&gt;', 'lxml')
+&gt;&gt;print(soup.p.string)
+&gt;&gt;'''Hello''
+
+from bs4 import Beautifulsoup
+
+soup = Beautifulsoup(html_doc, 'html.parser')
+对象 = soup.body.a        # 查找最开始第一个body标签下的第一个a标签
+
+
+对象.name           # 获取标签的名字
+对象.attrs          # 获取标签的所有属性
+对象.get(属性名)     # 获取标签指定属性
+对象.text           # 获取标签的文本内容（子子孙孙都拼接在一起的）
+对象.get_text()     # 和上面一样
+对象.string         # 当前标签下有文本才取出来，否则全是None
+对象.strings        # 子子孙孙的内容都放大生成器中
+## 标签选择器 ##
+</code></pre>
+
+<h3>返回title标签</h3>
+<pre><code>soup.title
+</code></pre>
+
+<h3>返回标签的类型</h3>
+<pre><code>type(soup.title) #返回&lt;class 'bs4.element.Tag'&gt;一个类变量
+</code></pre>
+
+<h3>返回head标签</h3>
+<pre><code>soup.head
+</code></pre>
+
+<h3>返回p标签,只返回第一个p标签，如果有多个只能输出第一个</h3>
+<pre><code>soup.p
+</code></pre>
+
+<h2>获取名称</h2>
+<h3>返回title标签的名称</h3>
+<pre><code>soup.title.name  #返回title 最外层标签的名称
+</code></pre>
+
+<h3>获取属性</h3>
+<pre><code>html = '''&lt;p class="title" name="zhaojia"&gt;the paragraph&lt;/p&gt;'''
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(html,'lxml')
+soup.p.attrs['name'] #返回zhaojia 
+soup.p['name']] #返回结果同上
+</code></pre>
+
+<h3>获取内容</h3>
+<pre><code>html = '''&lt;p class="title" name="zhaojia"&gt;the paragraph&lt;/p&gt;'''
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(html,'lxml')
+soup.p.string #返回the paragraph 
+</code></pre>
+
+<h3>嵌套选择</h3>
+<pre><code>html = '''&lt;head&gt;&lt;p class="title" name="zhaojia"&gt;the paragraph&lt;/p&gt;&lt;head&gt;'''
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(html,'lxml')
+soup.head.p.string  #返回the paragraph
+soup.head.p.attrs['name'] # 返回zhaojia
+</code></pre>
+
+<h3>子节点和子孙节点</h3>
+<pre><code>html = '''&lt;head&gt;&lt;p class="title" name="zhaojia"&gt;the paragraph&lt;/p&gt;&lt;head&gt;'''
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(html,'lxml')
+soup.head.contents #返回所有子节点列表
+the = soup.head.children
+for i,children in enumerate(the)：
+    print(i,children) # 返回一个iterable 必须使用for循环遍历出来
+soup.head.descendants #获取所有的子孙节点，返回类型是iterable object
+</code></pre>
+
+<h3>获取父节点和祖先节点</h3>
+<pre><code>soup.a.parent #获取父节点，输出父节点全部内容
+soup.a.parents #获取祖先节点
+</code></pre>
+
+<h3>获取兄弟节点</h3>
+<pre><code>soup.a.next_siblings
+soup.a.previous_siblings
+</code></pre>
+
+<h2>标准选择器</h2>
+<h3>find_all（）方法</h3>
+<h4>根据name查找（name-标签名）</h4>
+<p>name 参数可以查找所有名字为 name 的tag,字符串对象会被自动忽略掉.</p>
+<pre><code>from bs4 import BeautifulSoup
+soup = BeautifulSoup(html,'lxml')
+soup.find_all('p') 查找所有的p标签，并且以列表的形式返回
+type(soup.find_all('p')) 返回类型是&lt;class 'bs4.element.Tag'&gt;
+</code></pre>
+
+<h3>keyword 参数</h3>
+<p>如果一个指定名字的参数不是搜索内置的参数名,搜索时会把该参数当作指定名字tag的属性来搜索,如果包含一个名字为 id 的参数,Beautiful Soup会搜索每个tag的”id”属性.</p>
+<pre><code>soup.find_all(id='link2')
+#[&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;]
+</code></pre>
+
+<p>如果传入 href 参数,Beautiful Soup会搜索每个tag的”href”属性:</p>
+<pre><code>soup.find_all(href=re.compile("elsie"))
+#[&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;]
+</code></pre>
+
+<h3>CSS搜索</h3>
+<p>通过 class_ 参数搜索有指定CSS类名的tag:</p>
+<pre><code>soup.find_all("a", class_="sister")
+#[&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,
+#&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;,
+#&lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]
+</code></pre>
+
+<h3>正则表达式</h3>
+<pre><code>import re
+
+soup.find_all(re.compile('^b'))     # 查找出所有以b开头的标签
+</code></pre>
+
+<p>class_ 参数同样接受不同类型的 过滤器 ,字符串,正则表达式,方法或 True :</p>
+<pre><code> soup.find_all(class_=re.compile("itl"))
+#[&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;]
+
+def has_six_characters(css_class):
+    return css_class is not None and len(css_class) == 6
+
+soup.find_all(class_=has_six_characters)
+#[&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,
+#&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;,
+#&lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]
+</code></pre>
+
+<p>href的值</p>
+<pre><code>urla = item.findNext('a')['href']
+</code></pre>
+
+<h3>列表</h3>
+<pre><code>soup.find_all(['a', 'b'])   # 找到所有的a标签和b标签
+</code></pre>
+
+<h4>根据attrs查找（attrs-属性）</h4>
+<pre><code>from bs4 import BeautifulSoup
+soup = BeautifulSoup(html,'lxml')
+soup.find_all(attrs = {'id':'list-1'})
+</code></pre>
+
+<h4>根据text查找 （text-文本）</h4>
+<pre><code>from bs4 import BeautifulSoup
+soup = BeautifulSoup(html,'lxml')
+soup.find_all(text = 'the')
+</code></pre>
+
+<h3>find（）方法</h3>
+<p>find方法返回一个，findall返回所有</p>
+<h3>总结</h3>
+<pre><code>soup.find_all(name='a')  # # 查找所有 a 标签
+soup.find_all(name=['a','b'])  # 查找所有 a 标签和 b 标签
+soup.find_all(name=re.compile("^b"))  # 以 b 开头的标签查找
+
+soup.find_all("a", class_="sister")  # 查找class为sister的a标签
+
+soup.find_all(attrs={"属性名":"值"})
+
+soup.find_all(text="Elsie")  # 通过文本内容查找
+
+soup.find_all(id='link2')  # 通过id查找元素
+soup.find_all(class_="sister")  # 通过class查找元素
+
+soup.find_all("a", limit=2)  # 限制返回2个
+</code></pre>
+
+<h2>CSS选择器</h2>
+<ul>
+<li>
+<p>通过select（）直接传入CSS选择器就可以查找</p>
+<li>
+<p>class 选择器前面加一个点号</p>
+<li>
+<p>id 选择器前面加一个#</p>
+</li>
+</ul>
+<p>标签什么都不需要加
+soup.select(’.class’)
+soup.select(’#id #id2’)两个条件用空格隔开
+soup.select(tag1 tag3)</p>
+<h3>获取属性</h3>
+<pre><code>for ul in soup.select('ul'):
+    print(ul['id'])
+    print(ul.attrs['id'])
+</code></pre>
+
+<h3>获取内容</h3>
+<pre><code>for ul in soup.select('ul'):
+    print(ul.get_text)
+</code></pre>
+
+<h3>通过标签来查找</h3>
+<pre><code>soup.select('title')
+</code></pre>
+
+<h3>总结</h3>
+<pre><code>print(soup.select(".sister"))  # 查找类为sister的元素，返回一个列表
+print(soup.select("#link1"))  # 查找id为link1的元素，返回一个列表
+print(soup.select("a"))  # 查找a标签，返回一个列表
+print(soup.select("p[class=title]"))  # 查找class为title的p标签
+print(soup.select("p #link2"))  # 查看在p标签里的id为link2的p标签
+</code></pre>
+
+<h1>示例</h1>
+<pre><code>&gt;&gt;&gt; soup = BeautifulSoup(html_doc, 'html.parser') #也可以指定lxml或其他解析器                                   
+&gt;&gt;&gt; print(soup.prettify())                        #以优雅的方式显示出来
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;
+   The Dormouse's story
+  &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;p class="title"&gt;
+   &lt;b&gt;
+    The Dormouse's story
+   &lt;/b&gt;
+  &lt;/p&gt;
+  &lt;p class="story"&gt;
+   Once upon a time there were three little sisters; and their names were
+   &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;
+    Elsie
+   &lt;/a&gt;
+   ,
+   &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;
+    Lacie
+   &lt;/a&gt;
+   and
+   &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;
+    Tillie
+   &lt;/a&gt;
+   ;
+and they lived at the bottom of a well.
+  &lt;/p&gt;
+  &lt;p class="story"&gt;
+   ...
+  &lt;/p&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>使用</p>
+<pre><code>&gt;&gt;&gt; soup.title                              #访问&lt;title&gt;标签的内容
+&lt;title&gt;The Dormouse's story&lt;/title&gt;
+&gt;&gt;&gt; soup.title.name                         #查看标签的名字
+'title'
+&gt;&gt;&gt; soup.title.text                         #查看标签的文本
+"The Dormouse's story"
+&gt;&gt;&gt; soup.title.string                       #查看标签的文本
+"The Dormouse's story"
+&gt;&gt;&gt; soup.title.parent                       #查看上一级标签
+&lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;
+&gt;&gt;&gt; soup.head
+&lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;
+&gt;&gt;&gt; soup.b                                   #访问&lt;b&gt;标签的内容
+&lt;b&gt;The Dormouse's story&lt;/b&gt;
+&gt;&gt;&gt; soup.body.b                              #访问&lt;body&gt;中&lt;b&gt;标签的内容
+&lt;b&gt;The Dormouse's story&lt;/b&gt;
+&gt;&gt;&gt; soup.name                  #把整个BeautifulSoup对象看作标签对象
+'[document]'
+&gt;&gt;&gt; soup.body                  #查看body标签内容
+&lt;body&gt;
+&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;
+&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were
+&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;,
+&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt; and
+&lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;;
+and they lived at the bottom of a well.&lt;/p&gt;
+&lt;p class="story"&gt;...&lt;/p&gt;
+&lt;/body&gt;
+&gt;&gt;&gt; soup.p                             #查看段落信息
+&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;
+&gt;&gt;&gt; soup.p['class']                   #查看标签属性
+['title']
+&gt;&gt;&gt; soup.p.get('class')               #也可以这样查看标签属性
+['title']
+&gt;&gt;&gt; soup.p.text                        #查看段落文本
+"The Dormouse's story"
+&gt;&gt;&gt; soup.p.contents                    #查看段落内容
+[&lt;b&gt;The Dormouse's story&lt;/b&gt;]
+&gt;&gt;&gt; soup.a
+&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;
+&gt;&gt;&gt; soup.a.attrs                       #查看标签所有属性
+{'class': ['sister'], 'href': 'http://example.com/elsie', 'id': 'link1'}
+&gt;&gt;&gt; soup.find_all('a')                #查找所有&lt;a&gt;标签
+[&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;, &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;, &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]
+&gt;&gt;&gt; soup.find_all(['a', 'b'])        #同时查找&lt;a&gt;和&lt;b&gt;标签
+[&lt;b&gt;The Dormouse's story&lt;/b&gt;, &lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;, &lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt;, &lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]
+&gt;&gt;&gt; import re
+&gt;&gt;&gt; soup.find_all(href=re.compile("elsie"))
+                                      #查找href包含特定关键字的标签
+[&lt;a class="sister" href="http://example.com/elsie" id="link1"&gt;Elsie&lt;/a&gt;]
+&gt;&gt;&gt; soup.find(id='link3')             #查找属性id='link3'的标签
+&lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;
+&gt;&gt;&gt; soup.find_all('a', id='link3')    #查找属性'link3'的a标签
+[&lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;]
+&gt;&gt;&gt; for link in soup.find_all('a'):
+    print(link.text,':',link.get('href'))
+
+Elsie : http://example.com/elsie
+Lacie : http://example.com/lacie
+Tillie : http://example.com/tillie
+&gt;&gt;&gt; print(soup.get_text())                 #返回所有文本
+The Dormouse's story
+The Dormouse's story
+Once upon a time there were three little sisters; and their names were
+Elsie,Lacie and Tillie; and they lived at the bottom of a well.
+...
+&gt;&gt;&gt; soup.a['id'] = 'test_link1'           #修改标签属性的值
+&gt;&gt;&gt; soup.a
+&lt;a class="sister" href="http://example.com/elsie" id="test_link1"&gt;Elsie&lt;/a&gt;
+&gt;&gt;&gt; soup.a.string.replace_with('test_Elsie') #修改标签文本
+'Elsie'
+&gt;&gt;&gt; soup.a.string
+'test_Elsie'
+
+&gt;&gt;&gt; for child in soup.body.children:     #遍历直接子标签
+    print(child)
+
+&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;
+&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were
+&lt;a class="sister" href="http://example.com/elsie" id="test_link1"&gt;test_Elsie&lt;/a&gt;,
+&lt;a class="sister" href="http://example.com/lacie" id="link2"&gt;Lacie&lt;/a&gt; and
+&lt;a class="sister" href="http://example.com/tillie" id="link3"&gt;Tillie&lt;/a&gt;;
+and they lived at the bottom of a well.&lt;/p&gt;
+&lt;p class="story"&gt;...&lt;/p&gt;
+&gt;&gt;&gt; test_doc = '&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;/body&gt;&lt;/heml&gt;'
+&gt;&gt;&gt; s = BeautifulSoup(test_doc, 'lxml')
+&gt;&gt;&gt; for child in s.html.children:        #遍历直接子标签
+    print(child)
+
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;/body&gt;
+&gt;&gt;&gt; for child in s.html.descendants:     #遍历子孙标签
+    print(child)
+
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;/body&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+

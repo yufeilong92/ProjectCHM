@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tkinter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>tkinter</h1>
+<p>tkinter(Tk interface)是Python的标准GUl库，支持跨平台的GUl程序开发。tkinter适合小型的GUl程序编写，也特别适合初学者学习GUl编程。</p>
+<h1><a href="https://docs.python.org/3/library/tkinter.html" title="官网">官网</a></h1>
+<h2>使用</h2>
+<pre><code>pip install tk    
+from tkinter import *
+</code></pre>
+
+<h2>创建一个窗口</h2>
+<pre><code>from tkinter import *
+
+root = Tk()  # 实例化TK
+
+root.mainloop()  # 进入事件循环
+</code></pre>
+
+<h2>第一个GUI带事件的程序</h2>
+<pre><code>from tkinter import *
+from tkinter import messagebox
+
+root = Tk()
+
+bt = Button(root)
+bt['text'] = '点我'
+bt.pack()
+
+
+def dianji(e):
+    messagebox.showinfo('message', 'give flower')  # 提示框
+
+
+bt.bind('&lt;Button-1&gt;', dianji)  # 绑定点击事件
+root.mainloop()  # 进入事件循环
+</code></pre>
+
+<h2>tkinter实现打开文件对话框并获取文件绝对路径</h2>
+<pre><code># 首先，导入模块
+import tkinter.filedialog
+
+# 此处省略父容器的定义 ...
+
+# 第2步，定义按钮并指定触发函数self.Command1_Cmd
+self.style.configure('Command1.TButton',font=('宋体',9))
+self.Command1 = Button(self.Frame1, text='打开文件', command=self.Command1_Cmd, style='Command1.TButton')
+self.Command1.place(relx=0.836, rely=0.107, relwidth=0.093, relheight=0.111)
+
+# 第3步，定义按钮触发函数，event=None不能省略
+def Command1_Cmd(self, event=None):
+      # tkinter提供的askopenfilename函数可以实现打开文件对话框的效果，其返回值为所选文件的绝对路径
+      filename = tkinter.filedialog.askopenfilename()
+      print(filename)
+</code></pre>
+
+<h2>创建Tkinter文件对话框</h2>
+<pre><code>from tkinter import filedialog
+from tkinter import *
+
+root = Tk()
+root.filename = filedialog.askopenfilename(initialdir=&quot;/&quot;, title=&quot;Select file&quot;,
+                                           filetypes=((&quot;Text files&quot;, &quot;*.txt&quot;), (&quot;All files&quot;, &quot;*.*&quot;)))
+</code></pre>
+
+<h3>每一个参数的含义和用法。</h3>
+<ol>
+<li>
+<p>root：Tkinter中所有的控件都需要放在一个根控件中，这里我们创建了一个名为root的Tk控件。</p>
+</li>
+<li>
+<p>filedialog：Tkinter自带的文件对话框模块。</p>
+</li>
+<li>
+<p>askopenfilename：打开文件对话框，可选择打开文件。</p>
+</li>
+<li>
+<p>asksaveasfilename：打开文件对话框，可选择保存文件。</p>
+</li>
+<li>
+<p>initialdir：打开文件对话框时，显示的默认目录。</p>
+</li>
+<li>
+<p>title：打开文件对话框时，显示的标题。</p>
+</li>
+<li>
+<p>filetypes：指定接受的文件类型及其后缀名。</p>
+</li>
+</ol>
+<p>以上的参数里，initialdir和title是可选的，如果不指定，文件对话框会默认显示在当前文件夹下，并且标题为“Open”或“Save As”。</p>
+<h2>指定默认文件路径</h2>
+<p>我们需要打开或保存的文件路径是固定的，可以在代码中指定默认文件路径，这样一来就可以省去手动选择文件路径的步骤。代码如下
+	from tkinter import filedialog
+	from tkinter import *</p>
+<pre><code>root = Tk()
+root.filename = filedialog.askopenfilename(initialdir=&quot;/user/Downloads&quot;,
+                                           title=&quot;Select file&quot;,
+                                           filetypes=((&quot;Text files&quot;, &quot;*.txt&quot;), (&quot;All files&quot;, &quot;*.*&quot;)))
+</code></pre>
+
+<p>以上例子中，文件对话框的默认打开路径为<strong>/user/Downloads。</strong></p>
+<h2>过滤特定类型文件</h2>
+<p>有时候我们只需要选择一种特定类型的文件，而不是所有类型文件。可以使用filetypes参数来过滤指定类型的文件，代码如下
+	from tkinter import filedialog
+	from tkinter import *</p>
+<pre><code>root = Tk()
+root.filename = filedialog.askopenfilename(initialdir=&quot;/&quot;, title=&quot;Select image file&quot;,
+                                           filetypes=((&quot;Image files&quot;, &quot;*.jpg;*.png&quot;), (&quot;All files&quot;, &quot;*.*&quot;)))
+</code></pre>
+
+<p>以上例子中，文件对话框只会显示后缀名为<strong>.jpg</strong>或<strong>.png</strong>的文件。</p>
+<h2>多选文件</h2>
+<p>我们需要同时选择多个文件，或者选择一个文件夹。可以使用askopenfilenames和askdirectory函数，下面是示例代码：
+	from tkinter import filedialog
+	from tkinter import *</p>
+<pre><code>root = Tk()
+root.filenames = filedialog.askopenfilenames(initialdir=&quot;/&quot;, title=&quot;Select images files&quot;,
+                                             filetypes=((&quot;Image files&quot;, &quot;*.jpg;*.png&quot;), (&quot;All files&quot;, &quot;*.*&quot;)))
+root.foldername = filedialog.askdirectory(initialdir=&quot;/&quot;, title=&quot;Select folder&quot;)
+</code></pre>
+
+<p>以上例子中，askopenfilenames函数用于选择多个文件，askdirectory用于选择文件夹。选择的文件路径或文件夹路径分别存储在了root.filenames和root.foldername中。</p>
+<h3>tk buton 传参</h3>
+<pre><code>btn=Button(root,text=&quot;确认&quot;,command=lambda :print_hi(&quot;a&quot;))
+    btn.grid(row=0,column=2)
+ttk.Button(frame, text='button',command=lambda:func(param))
+</code></pre>
+
+<h3>窗口选择，并获取选择项</h3>
+<pre><code>def print_hi(name):
+     print(f'Hi,{name.get()}')
+
+
+master = Tk()
+master.geometry(&quot;175x175&quot;)
+
+# Tkinter string variable
+# able to store any string value
+v = StringVar(master, &quot;1&quot;)
+
+# Dictionary to create multiple buttons
+values = {&quot;RadioButton 1&quot;: &quot;1&quot;, &quot;RadioButton 2&quot;: &quot;2&quot;, &quot;RadioButton 3&quot;: &quot;3&quot;, &quot;RadioButton 4&quot;: &quot;4&quot;,
+          &quot;RadioButton 5&quot;: &quot;5&quot;}
+
+# Loop is used to create multiple Radiobuttons
+# rather than creating each button separately
+for (text, value) in values.items():
+    radiobutton = Radiobutton(master, text=text, variable=v, value=value, indicator=0, background=&quot;light blue&quot;,
+                              command=lambda: print_hi(v))
+    radiobutton.pack(fill=X,
+                     ipady=5)
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
