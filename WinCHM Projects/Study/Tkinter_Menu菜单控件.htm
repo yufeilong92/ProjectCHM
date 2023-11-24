@@ -1,0 +1,652 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Tkinter Menu菜单控件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Tkinter Menu菜单控件</h1>
+<p>Menu 控件（菜单控件）可以说是 GUI 中“精髓所在”，它以可视化的方式将一系列的“功能选项卡”进行分组，并在每个分组下又“隐藏”了许多其他的“选项卡”。当打开菜单时，这些选项卡就会“显式”的呈现出来，方便用户进行选择，比如 Windows 系统中记事本文件（.txt文件类型）的界面：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/1114034A7-0.gif" alt="1" /></p>
+<p>通过使用菜单控件（Menu）可以充分地节省有限的窗口区域，让我们的界面更加简洁优雅，避免臃肿、混乱。 </p>
+<p>Tkinter Menu 控件提供了三种类型的菜单，分别是：topleve（主目录菜单）、pull-down（下拉式菜单）、pop-up（弹出式菜单，或称快捷式菜单）。</p>
+<p>下表列出创建菜单时用到的相关方法，如下所示：</p>
+<p><br /></p>
+<table>
+<tbody>
+<tr>
+<th>
+方法</th>
+<th>
+说明</th>
+</tr>
+<tr>
+<td>
+add_cascade(**options)</td>
+<td>
+添加一个父菜单，将一个指定的子菜单，通过 menu 参数与父菜单连接，从而创建一个下拉菜单。</td>
+</tr>
+<tr>
+<td>
+add_checkbutton(**options)</td>
+<td>
+添加一个多选按钮的菜单项</td>
+</tr>
+<tr>
+<td>
+add_command(**options)</td>
+<td>
+&nbsp;添加一个普通的命令菜单项</td>
+</tr>
+<tr>
+<td>
+add_radiobutton(**options)</td>
+<td>
+添加一个单选按钮的菜单项</td>
+</tr>
+<tr>
+<td>
+add_separator(**options)</td>
+<td>
+&nbsp;添加一条分割线</td>
+</tr>
+<tr>
+<td>
+add(add(itemType, options))</td>
+<td>
+添加菜单项，此处 itemType 参数可以是以下几种：&quot;command&quot;、&quot;cascade&quot;，<br />
+&quot;checkbutton&quot;、&quot;radiobutton&quot;、&quot;separator&quot; 五种，并使用 options 选项来设置<br />
+菜单其他属性。</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+除了上述方法之外，Menu 控件也提供了一些其他方法来操作菜单项，比如删除菜单项、获取菜单项、设置指定的菜单项等，如下表所示：<br />
+<br /></p>
+<table>
+<tbody>
+<tr>
+<th>
+方法</th>
+<th>
+说明</th>
+</tr>
+<tr>
+<td>
+delete(index1, index2=None)</td>
+<td>
+1.&nbsp;删除 index1 ~ index2（包含）的所有菜单项<br />
+2.&nbsp;如果忽略 index2 参数，则删除 index1 指向的菜单项</td>
+</tr>
+<tr>
+<td>
+entrycget(index, option)</td>
+<td>
+获得指定菜单项的某选项的值</td>
+</tr>
+<tr>
+<td>
+entryconfig(index, **options)</td>
+<td>
+设置指定菜单项的选项</td>
+</tr>
+<tr>
+<td>
+index(index)</td>
+<td>
+返回与 index 参数相应的选项的序号</td>
+</tr>
+<tr>
+<td>
+insert(index, itemType, **options)</td>
+<td>
+插入指定类型的菜单项到 index 参数指定的位置，类型可以是<br />
+是：&quot;command&quot;，&quot;cascade&quot;，&quot;checkbutton&quot;，&quot;radiobutton&quot;<br />
+或 &quot;separator&quot; 中的一个，或者也可以使用 insert_类型() 形式来，<br />
+比如&nbsp;insert_cascade(index, **options)..等</td>
+</tr>
+<tr>
+<td>
+invoke(index)</td>
+<td>
+调用 index 指定的菜单项相关联的方法</td>
+</tr>
+<tr>
+<td>
+post(x, y)</td>
+<td>
+在指定的位置显示弹出菜单</td>
+</tr>
+<tr>
+<td>
+type(index)</td>
+<td>
+获得 index 参数指定菜单项的类型</td>
+</tr>
+<tr>
+<td>
+unpost()</td>
+<td>
+移除弹出菜单</td>
+</tr>
+<tr>
+<td>
+yposition(index)</td>
+<td>
+返回 index 参数指定的菜单项的垂直偏移位置</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+下面对 Menu 控件的 options 参数做简单地介绍，如下所示：<br />
+<br /></p>
+<table>
+<tbody>
+<tr>
+<th>
+属性</th>
+<th>
+说明</th>
+</tr>
+<tr>
+<td>
+accelerator</td>
+<td>
+1. 设置菜单项的快捷键，快捷键会显示在菜单项目的右边，比如&nbsp;accelerator = &quot;Ctrl+O&quot; 表示打开；<br />
+2. 注意，此选项并不会自动将快捷键与菜单项连接在一起，必须通过按键绑定来实现</td>
+</tr>
+<tr>
+<td>
+command</td>
+<td>
+选择菜单项时执行的 callback 函数</td>
+</tr>
+<tr>
+<td>
+label</td>
+<td>
+定义菜单项内的文字</td>
+</tr>
+<tr>
+<td>
+menu</td>
+<td>
+此属性与 add_cascade() 方法一起使用，用来新增菜单项的子菜单项</td>
+</tr>
+<tr>
+<td>
+selectcolor</td>
+<td>
+指定当菜单项显示为单选按钮或多选按钮时选择中标志的颜色</td>
+</tr>
+<tr>
+<td>
+state</td>
+<td>
+定义菜单项的状态，可以是 normal、active 或 disabled</td>
+</tr>
+<tr>
+<td>
+onvalue/offvalue</td>
+<td>
+1. 默认情况下，variable 选项设置为 1 表示选中状态，反之设置为 0，设置 offvalue/onvalue 的值可以自定义未选中状态的值<br />
+2.&nbsp;</td>
+</tr>
+<tr>
+<td>
+tearoff</td>
+<td>
+1. 如果此选项为 True，在菜单项的上面就会显示一个可选择的分隔线；<br />
+2. 注意：分隔线会将此菜单项分离出来成为一个新的窗口</td>
+</tr>
+<tr>
+<td>
+underline</td>
+<td>
+设置菜单项中哪一个字符要有下画线</td>
+</tr>
+<tr>
+<td>
+value</td>
+<td>
+1. 设置按钮菜单项的值<br />
+2.&nbsp;在同一组中的所有按钮应该拥有各不相同的值<br />
+3.&nbsp;通过将该值与 variable 选项的值对比，即可判断用户选中了哪个按钮</td>
+</tr>
+<tr>
+<td>
+variable</td>
+<td>
+当菜单项是单选按钮或多选按钮时，与之关联的变量</td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+<h2>1）创建主目录菜单</h2>
+<p>主目录菜单也称之为“顶级菜单”，下拉菜单等其他子菜单的都需要建立在“顶级菜单”的基础之上，下面示例创建了一个类似于“记事本”界面的程序，代码如下：</p>
+<pre><code>from tkinter import *
+import tkinter . messagebox
+#创建主窗口
+win = Tk()
+win.config(bg='#87CEEB')
+win.title(&quot;C语言中文网&quot;)
+win.geometry('450x350+300+200')
+win.iconbitmap('C:/Users/Administrator/Desktop/C语言中文网logo.ico')
+
+# 绑定一个执行函数，当点击菜单项的时候会显示一个消息对话框
+def menuCommand() :
+    tkinter.messagebox.showinfo(&quot;主菜单栏&quot;,&quot;你正在使用主菜单栏&quot;)
+# 创建一个主目录菜单，也被称为顶级菜单
+main_menu = Menu (win)
+#新增命令菜单项，使用 add_command() 实现
+main_menu.add_command (label=&quot;文件&quot;,command=menuCommand)
+main_menu.add_command (label=&quot;编辑&quot;,command=menuCommand)
+main_menu.add_command (label=&quot;格式&quot;,command=menuCommand)
+main_menu.add_command (label=&quot;查看&quot;,command=menuCommand)
+main_menu.add_command (label=&quot;帮助&quot;,command=menuCommand)
+#显示菜单
+win.config (menu=main_menu)
+win.mainloop()
+</code></pre>
+
+<p>程序 运行结果如下：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/111403A44-1.gif" alt="1" /></p>
+<p>如上图所示，当点击主目录中的任意一个菜单选项时都会跳出一个消息对话框。</p>
+<h2>2) 创建下拉菜单</h2>
+<p>下拉菜单时主菜单的重要组成部分，也是用户选择相关命令的重要交互界面，下拉菜单的创建方式也非常简单，不过需要我们注意，下拉菜单是建立的主菜单（即顶级菜单）的基础之上的，并非主窗口之上，这一点千万不要搞混，否则创建下拉菜单会失败。</p>
+<p>下面继续仿照“记事本”的相关功能来创建下拉菜单，示例如下：</p>
+<pre><code>#创建一个下拉式菜单
+from tkinter import *
+import tkinter .messagebox
+#创建主窗口
+win = Tk()
+win.config(bg='#87CEEB')
+win.title(&quot;C语言中文网&quot;)
+win.geometry('450x350+300+200')
+win.iconbitmap('C:/Users/Administrator/Desktop/C语言中文网logo.ico')
+
+#创建一个执行函数，点击下拉菜单中命令时执行
+def menuCommand() :
+    tkinter .messagebox .showinfo(&quot;下拉菜单&quot;, &quot;您正在使用下拉菜单功能&quot;)
+
+#创建主目录菜单（顶级菜单）
+mainmenu = Menu (win)
+
+#在顶级菜单上新增&quot;文件&quot;菜单的子菜单，同时不添加分割线
+filemenu = Menu (mainmenu, tearoff=False)
+
+#新增&quot;文件&quot;菜单的菜单项，并使用 accelerator 设置菜单项的快捷键
+filemenu.add_command (label=&quot;新建&quot;,command=menuCommand,accelerator=&quot;Ctrl+N&quot;)
+filemenu.add_command (label=&quot;打开&quot;,command=menuCommand, accelerator=&quot;Ctrl+O&quot;)
+filemenu.add_command (label=&quot;保存&quot;,command=menuCommand, accelerator=&quot;Ctrl+S&quot;)
+# 添加一条分割线
+filemenu.add_separator ()
+filemenu.add_command (label=&quot;退出&quot;,command=win. quit)
+#在主目录菜单上新增&quot;文件&quot;选项，并通过menu参数与下拉菜单绑定
+mainmenu.add_cascade (label=&quot;文件&quot;,menu=filemenu)
+
+# 将主菜单设置在窗口上
+win.config (menu=mainmenu)
+# 绑定键盘事件，按下键盘上的相应的键时都会触发执行函数
+win.bind (&quot;&lt;Control-n&gt;&quot;,menuCommand)
+win. bind (&quot;&lt;Control-N&gt;&quot;, menuCommand)
+win.bind (&quot;&lt;Control-o&gt;&quot;,menuCommand)
+win. bind (&quot;&lt;Control-O&gt;&quot;, menuCommand)
+win. bind (&quot;&lt;Control-s&gt;&quot;, menuCommand)
+win.bind (&quot;&lt;Control-S&gt;&quot;,menuCommand)
+# 显示主窗口
+win.mainloop()
+</code></pre>
+
+<p>程序运行解结果如下：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/111403O36-2.gif" alt="1" /></p>
+<h2>3) 创建弹出菜单栏</h2>
+<p>弹出式菜单栏，也称为快捷式菜单栏，比如通过点击鼠标右键弹出一个菜单栏，其中包含一些常用的选项卡，如复制、粘贴等，如下所示：在记事本的空白处点击鼠标右键会弹出一个菜单栏。</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/111403F43-3.gif" alt="1" /></p>
+<p>Tkinter Menu 控件同样可以是实现上述功能，而且并不复杂，示例如下：</p>
+<pre><code>import tkinter as tk
+
+root = tk.Tk()
+root.config(bg='#8DB6CD')
+root.title(&quot;C语言中文网&quot;)
+root.geometry('400x300')
+root.iconbitmap('C:/Users/Administrator/Desktop/C语言中文网logo.ico')
+def func():
+    print('您通过弹出菜单执行了命令')
+
+# 创建一个弹出菜单
+menu = tk.Menu(root, tearoff=False)
+menu.add_command(label=&quot;新建&quot;, command=func)
+menu.add_command(label=&quot;复制&quot;, command=func)
+menu.add_command(label=&quot;粘贴&quot;, command=func)
+menu.add_command(label=&quot;剪切&quot;, command=func)
+# 定义事件函数
+def command(event):
+    # 使用 post()在指定的位置显示弹出菜单
+    menu.post(event.x_root, event.y_root)
+
+# 绑定鼠标右键，这是鼠标绑定事件
+# &lt;Button-3&gt;表示点击鼠标的右键，1 表示左键，2表示点击中间的滑轮
+root.bind(&quot;&lt;Button-3&gt;&quot;, command)
+root.mainloop()
+</code></pre>
+
+<p>程序运行结果如下：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/1114033944-4.gif" alt="1" /></p>
+<h2>4) 菜单按钮控件</h2>
+<p>Menubutton（菜单按钮控件）是一个与 Menu 控件相关联的按钮，当我们按下按钮的时候下拉菜单就会自动弹出。通过 Menubutton 创建的菜单按钮可以自由地放置在窗口中的任意位置，从而提高了 GUI 界面的灵活性。</p>
+<p>下面看一组简单使用示例：</p>
+<pre><code>from tkinter import *
+win=Tk()
+win.config(bg='#87CEEB')
+win.title(&quot;C语言中文网&quot;)
+win.geometry('450x350+300+200')
+win.iconbitmap('C:/Users/Administrator/Desktop/C语言中文网logo.ico')
+#创建一个菜单按钮
+menubtn=Menubutton(win, text='点击进行操作', relief='sunk')
+# 设置位置（布局）
+menubtn.grid(padx=195, pady=105)
+#添加菜单,使用 tearoff 参数不显示分割线
+filemenu=Menu(menubtn,tearoff = False)
+filemenu.add_command(label='新建')
+filemenu.add_command(label='删除')
+filemenu.add_command(label='复制')
+filemenu.add_command(label='保存')
+# 显示菜单，将菜单命令绑定在菜单按钮对象上
+menubtn.config(menu=filemenu)
+win.mainloop()
+</code></pre>
+
+<p>程序运行结果如下：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/1114033519-5.gif" alt="1" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

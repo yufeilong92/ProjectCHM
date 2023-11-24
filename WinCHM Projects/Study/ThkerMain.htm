@@ -1,0 +1,790 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>New Item</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Tkinter</h1>
+<p>一个最简单的 Tkinter 程序至少应包含以下四个部分：</p>
+<ul>
+<li>导入 tkinter 模块</li>
+<li>创建主窗口，也称 root 窗口（即根窗口）</li>
+<li>添加人机交互控件，同时编写相应的事件函数</li>
+<li>通过主循环（mainloop）来显示主窗口</li>
+</ul>
+<h2>案例</h2>
+<pre><code># -*- coding:utf-8 -*-
+import tkinter as tk
+# 调用Tk()创建主窗口
+root_window =tk.Tk()
+# 给主窗口起一个名字，也就是窗口的名字
+root_window.title('C语言中文网：c.biancheng.net')
+#开启主循环，让窗口处于显示状态
+root_window.mainloop()
+</code></pre>
+
+<h2>功能</h2>
+<h3>添加文本</h3>
+<p>此处使用了标签 Lable 控件来实现。</p>
+<pre><code># 添加文本标签，text参数指定内容
+text=tk.Label(root_window,text=&quot;C语言中文网，欢迎您&quot;,bg=&quot;yellow&quot;,fg=&quot;red&quot;,font=('Times', 20, 'bold italic'))
+# 将标签对象放置在主窗口内
+text.pack()
+</code></pre>
+
+<h3>添加按钮</h3>
+<p>添加按钮的逻辑和添加文本标签类似，值得注意的是，按钮控件通过command参数实现了“关闭窗口”功能，代码如下：</p>
+<pre><code># 添加按钮
+button=tk.Button(root_window,text=&quot;关闭&quot;,command=root_window.quit)
+# 这里将按钮放置在主窗口的底部
+button.pack(side=&quot;bottom&quot;)
+</code></pre>
+
+<p>Tkinter 提供了十余种常用类型的控件，每个控件都有相应的属性，比如颜色（前景色/背景色/颜色常量）、文本内容、字体样式、控件大小、控件样式、控件命令等等，这些会在后续内容做详细介绍。</p>
+<h2>Tkinter常用控件和属性</h2>
+<h3>控件类型</h3>
+<table>
+<tbody>
+<tr>
+<th>
+控件类型</th>
+<th>
+控件名称</th>
+<th>
+控件作用</th>
+</tr>
+<tr>
+<td>
+Button</td>
+<td>
+按钮</td>
+<td>
+点击按钮时触发/执行一些事件（函数）</td>
+</tr>
+<tr>
+<td>
+Canvas</td>
+<td>
+画布</td>
+<td>
+提供绘制图，比如直线、矩形、多边形等</td>
+</tr>
+<tr>
+<td>
+Checkbutton</td>
+<td>
+复选框</td>
+<td>
+多项选择按钮，用于在程序中提供多项选择框</td>
+</tr>
+<tr>
+<td>
+Entry</td>
+<td>
+文本框输入框</td>
+<td>
+用于接收单行文本输入</td>
+</tr>
+<tr>
+<td>
+Frame</td>
+<td>
+框架（容器）控件</td>
+<td>
+定义一个窗体（根窗口也是一个窗体），用于承载其他控件，即作为其他控件的容器</td>
+</tr>
+<tr>
+<td>
+Lable</td>
+<td>
+标签控件</td>
+<td>
+用于显示单行文本或者图片</td>
+</tr>
+<tr>
+<td>
+LableFrame</td>
+<td>
+容器控件</td>
+<td>
+一个简单的容器控件，常用于复杂的窗口布局。</td>
+</tr>
+<tr>
+<td>
+Listbox</td>
+<td>
+列表框控件</td>
+<td>
+以列表的形式显示文本</td>
+</tr>
+<tr>
+<td>
+Menu</td>
+<td>
+菜单控件</td>
+<td>
+菜单组件（下拉菜单和弹出菜单）</td>
+</tr>
+<tr>
+<td>
+Menubutton</td>
+<td>
+菜单按钮控件</td>
+<td>
+用于显示菜单项</td>
+</tr>
+<tr>
+<td>
+Message</td>
+<td>
+信息控件</td>
+<td>
+用于显示多行不可编辑的文本，与 Label控件类似，增加了自动分行的功能</td>
+</tr>
+<tr>
+<td>
+messageBox</td>
+<td>
+消息框控件</td>
+<td>
+定义与用户交互的消息对话框</td>
+</tr>
+<tr>
+<td>
+OptionMenu</td>
+<td>
+选项菜单</td>
+<td>
+下拉菜单</td>
+</tr>
+<tr>
+<td>
+PanedWindow</td>
+<td>
+窗口布局管理组件</td>
+<td>
+为组件提供一个框架，允许用户自己划分窗口空间</td>
+</tr>
+<tr>
+<td>
+Radiobutton</td>
+<td>
+单选框</td>
+<td>
+单项选择按钮，只允许从多个选项中选择一项</td>
+</tr>
+<tr>
+<td>
+Scale</td>
+<td>
+进度条控件</td>
+<td>
+定义一个线性“滑块”用来控制范围，可以设定起始值和结束值，并显示当前位置的精确值</td>
+</tr>
+<tr>
+<td>
+Spinbox</td>
+<td>
+高级输入框</td>
+<td>
+Entry 控件的升级版，可以通过该组件的上、下箭头选择不同的值</td>
+</tr>
+<tr>
+<td>
+Scrollbar</td>
+<td>
+滚动条</td>
+<td>
+默认垂直方向，鼠标拖动改变数值，可以和 Text、Listbox、Canvas等控件配合使用</td>
+</tr>
+<tr>
+<td>
+Text</td>
+<td>
+多行文本框</td>
+<td>
+接收或输出多行文本内容</td>
+</tr>
+<tr>
+<td>
+Toplevel</td>
+<td>
+子窗口</td>
+<td>
+在创建一个独立于主窗口之外的子窗口，位于主窗口的上一层，可作为其他控件的容器</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<th>
+控件类型</th>
+<th>
+控件名称</th>
+<th>
+控件作用</th>
+</tr>
+<tr>
+<td>
+Button</td>
+<td>
+按钮</td>
+<td>
+点击按钮时触发/执行一些事件（函数）</td>
+</tr>
+<tr>
+<td>
+Canvas</td>
+<td>
+画布</td>
+<td>
+提供绘制图，比如直线、矩形、多边形等</td>
+</tr>
+<tr>
+<td>
+Checkbutton</td>
+<td>
+复选框</td>
+<td>
+多项选择按钮，用于在程序中提供多项选择框</td>
+</tr>
+<tr>
+<td>
+Entry</td>
+<td>
+文本框输入框</td>
+<td>
+用于接收单行文本输入</td>
+</tr>
+<tr>
+<td>
+Frame</td>
+<td>
+框架（容器）控件</td>
+<td>
+定义一个窗体（根窗口也是一个窗体），用于承载其他控件，即作为其他控件的容器</td>
+</tr>
+<tr>
+<td>
+Lable</td>
+<td>
+标签控件</td>
+<td>
+用于显示单行文本或者图片</td>
+</tr>
+<tr>
+<td>
+LableFrame</td>
+<td>
+容器控件</td>
+<td>
+一个简单的容器控件，常用于复杂的窗口布局。</td>
+</tr>
+<tr>
+<td>
+Listbox</td>
+<td>
+列表框控件</td>
+<td>
+以列表的形式显示文本</td>
+</tr>
+<tr>
+<td>
+Menu</td>
+<td>
+菜单控件</td>
+<td>
+菜单组件（下拉菜单和弹出菜单）</td>
+</tr>
+<tr>
+<td>
+Menubutton</td>
+<td>
+菜单按钮控件</td>
+<td>
+用于显示菜单项</td>
+</tr>
+<tr>
+<td>
+Message</td>
+<td>
+信息控件</td>
+<td>
+用于显示多行不可编辑的文本，与 Label控件类似，增加了自动分行的功能</td>
+</tr>
+<tr>
+<td>
+messageBox</td>
+<td>
+消息框控件</td>
+<td>
+定义与用户交互的消息对话框</td>
+</tr>
+<tr>
+<td>
+OptionMenu</td>
+<td>
+选项菜单</td>
+<td>
+下拉菜单</td>
+</tr>
+<tr>
+<td>
+PanedWindow</td>
+<td>
+窗口布局管理组件</td>
+<td>
+为组件提供一个框架，允许用户自己划分窗口空间</td>
+</tr>
+<tr>
+<td>
+Radiobutton</td>
+<td>
+单选框</td>
+<td>
+单项选择按钮，只允许从多个选项中选择一项</td>
+</tr>
+<tr>
+<td>
+Scale</td>
+<td>
+进度条控件</td>
+<td>
+定义一个线性“滑块”用来控制范围，可以设定起始值和结束值，并显示当前位置的精确值</td>
+</tr>
+<tr>
+<td>
+Spinbox</td>
+<td>
+高级输入框</td>
+<td>
+Entry 控件的升级版，可以通过该组件的上、下箭头选择不同的值</td>
+</tr>
+<tr>
+<td>
+Scrollbar</td>
+<td>
+滚动条</td>
+<td>
+默认垂直方向，鼠标拖动改变数值，可以和 Text、Listbox、Canvas等控件配合使用</td>
+</tr>
+<tr>
+<td>
+Text</td>
+<td>
+多行文本框</td>
+<td>
+接收或输出多行文本内容</td>
+</tr>
+<tr>
+<td>
+Toplevel</td>
+<td>
+子窗口</td>
+<td>
+在创建一个独立于主窗口之外的子窗口，位于主窗口的上一层，可作为其他控件的容器</td>
+</tr>
+</tbody>
+</table>
+<p>除了上述控件外，还有一些高级控件，比如 PanedWindow、messagebox、LableFrame、Spinbox，在后续章节也会讲解。</p>
+<h3>控件基本属性</h3>
+<h4>控件的共用属性做简单介绍</h4>
+<table>
+<tbody>
+<tr>
+<th>
+属性名称</th>
+<th>
+说明</th>
+</tr>
+<tr>
+<td>
+anchor</td>
+<td>
+定义控件或者文字信息在窗口内的位置</td>
+</tr>
+<tr>
+<td>
+bg</td>
+<td>
+bg 是 background 的缩写，用来定义控件的背景颜色，参数值可以颜色的十六进制数，或者颜色英文单词</td>
+</tr>
+<tr>
+<td>
+bitmap</td>
+<td>
+定义显示在控件内的位图文件</td>
+</tr>
+<tr>
+<td>
+borderwidth</td>
+<td>
+定于控件的边框宽度，单位是像素</td>
+</tr>
+<tr>
+<td>
+command</td>
+<td>
+该参数用于执行事件函数，比如单击按钮时执行特定的动作，可将执行用户自定义的函数</td>
+</tr>
+<tr>
+<td>
+cursor</td>
+<td>
+当鼠标指针移动到控件上时，定义鼠标指针的类型，字符换格式，参数值有 crosshair（十字光标）watch（待加载圆圈）plus（加号）arrow（箭头）等</td>
+</tr>
+<tr>
+<td>
+font</td>
+<td>
+若控件支持设置标题文字，就可以使用此属性来定义，它是一个数组格式的参数 (字体,大小，字体样式)</td>
+</tr>
+<tr>
+<td>
+fg</td>
+<td>
+fg 是 foreground 的缩写，用来定义控件的前景色，也就是字体的颜色</td>
+</tr>
+<tr>
+<td>
+height</td>
+<td>
+该参数值用来设置控件的高度，文本控件以字符的数目为高度（px），其他控件则以像素为单位</td>
+</tr>
+<tr>
+<td>
+image</td>
+<td>
+定义显示在控件内的图片文件</td>
+</tr>
+<tr>
+<td>
+justify</td>
+<td>
+定义多行文字的排列方式，此属性可以是 LEFT/CENTER/RIGHT</td>
+</tr>
+<tr>
+<td>
+padx/pady</td>
+<td>
+定义控件内的文字或者图片与控件边框之间的水平/垂直距离</td>
+</tr>
+<tr>
+<td>
+relief</td>
+<td>
+定义控件的边框样式，参数值为FLAT（平的）/RAISED（凸起的）/SUNKEN（凹陷的）/GROOVE（沟槽桩边缘）/RIDGE（脊状边缘）</td>
+</tr>
+<tr>
+<td>
+text</td>
+<td>
+定义控件的标题文字</td>
+</tr>
+<tr>
+<td>
+state</td>
+<td>
+控制控件是否处于可用状态，参数值默认为 NORMAL/DISABLED，默认为 NORMAL（正常的）</td>
+</tr>
+<tr>
+<td>
+width</td>
+<td>
+用于设置控件的宽度，使用方法与&nbsp;height 相同</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

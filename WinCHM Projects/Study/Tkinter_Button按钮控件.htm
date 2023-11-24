@@ -1,0 +1,508 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>Tkinter Button按钮控件</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Tkinter Button按钮控件</h1>
+<p>Button 控件是 Tkinter 中常用的窗口部件之一。</p>
+<p>按钮控件使用起来非常简单，它同样可以包含文本、图像、位图，并通过command参数回调函数。当然按钮也并非一定要执行回调函数（callback function），它也只可以当一个“摆设”，不过这样的按钮是没有“灵魂的”，Button 控件的使用流程如下所示：</p>
+<pre><code>import tkinter as tk
+
+# 创建窗口
+window =tk.Tk()
+
+# 设置回调函数
+def callback():
+print (&quot;click me!&quot;)
+# 使用按钮控件调用函数
+b = tk.Button(window, text=&quot;点击执行回调函数&quot;, command=callback).pack()
+# 显示窗口
+tk.mainloop()
+</code></pre>
+
+<p><strong>Button</strong> 控件的常营属性如下所示：</p>
+<p><br /></p>
+<table>
+<tbody>
+<tr>
+<th>
+属性</th>
+<th>
+说明</th>
+</tr>
+<tr>
+<td>
+anchor</td>
+<td>
+控制文本所在的位置，默认为中心位置（CENTER）</td>
+</tr>
+<tr>
+<td>
+activebackground</td>
+<td>
+当鼠标放在按钮上时候，按妞的背景颜色</td>
+</tr>
+<tr>
+<td>
+activeforeground</td>
+<td>
+当鼠标放在按钮上时候，按钮的前景色</td>
+</tr>
+<tr>
+<td>
+bd</td>
+<td>
+按钮边框的大小，默认为 2 个像素</td>
+</tr>
+<tr>
+<td>
+bg</td>
+<td>
+按钮的背景色</td>
+</tr>
+<tr>
+<td>
+command</td>
+<td>
+用来执行按钮关联的回调函数。当按钮被点击时，执行该函数</td>
+</tr>
+<tr>
+<td>
+fg</td>
+<td>
+按钮的前景色</td>
+</tr>
+<tr>
+<td>
+font</td>
+<td>
+按钮文本的字体样样式</td>
+</tr>
+<tr>
+<td>
+height</td>
+<td>
+按钮的高度</td>
+</tr>
+<tr>
+<td>
+highlightcolor</td>
+<td>
+按钮控件高亮处要显示的颜色</td>
+</tr>
+<tr>
+<td>
+image</td>
+<td>
+按钮上要显示的图片</td>
+</tr>
+<tr>
+<td>
+justify</td>
+<td>
+按钮显示多行文本时，用来指定文本的对齐方式，参数值有 LEFT/RIGHT/CENTER</td>
+</tr>
+<tr>
+<td>
+padx/pady</td>
+<td>
+padx 指定 x 轴（水平方向）的间距大小，pady 则表示 y轴（垂直方向）的间距大小</td>
+</tr>
+<tr>
+<td>
+ipadx/ipady</td>
+<td>
+ipadx 指标签文字与标签容器之间的横向距离；ipady 则表示标签文字与标签容器之间的纵向距离</td>
+</tr>
+<tr>
+<td>
+state</td>
+<td>
+设置按钮的可用状态，可选参数有NORMAL/ACTIVE/DISABLED，默认为 NORMAL</td>
+</tr>
+<tr>
+<td>
+text</td>
+<td>
+按钮控件要显示的文本</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+除了 Button 按钮之外，和其类似的按钮还有复选框按钮（Checkbutton）和单选框按钮（Radiobutton），它们分别有着不同语法和使用场景，后续会做详细介绍。</p>
+<p><strong>Button</strong> 控件的用法做简单的说明：</p>
+<pre><code>import tkinter as tk
+from tkinter import messagebox
+
+window = tk.Tk()
+# 设置窗口的标题
+window.title('C语言中文网')
+# 设置并调整窗口的大小、位置
+window.geometry('400x300+300+200')
+
+# 当按钮被点击的时候执行click_button()函数
+def click_button():
+# 使用消息对话框控件，showinfo()表示温馨提示
+messagebox.showinfo(title='温馨提示', message='欢迎使用C语言中文网')
+
+# 点击按钮时执行的函数
+button = tk.Button(window,text='点击前往',bg='#7CCD7C',width=20, height=5,command=click_button).pack()
+
+# 显示窗口
+window.mainloop()
+</code></pre>
+
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/11063021D-0.gif" alt="结果" /></p>
+<p><strong>Button</strong> 控件添加一张背景图片，实现代码如下所示：</p>
+<pre><code>import tkinter as tk
+from tkinter import messagebox
+
+window = tk.Tk()
+# 设置窗口的标题
+window.title('C语言中文网')
+# 设置窗口的大小
+window.geometry('400x300+300+200')
+
+# 当按钮被点击的时候执行click_button()函数
+def click_button():
+# 使用消息对话框控件，showinfo()表示温馨提示
+messagebox.showinfo(title='温馨提示', message='欢迎使用C语言中文网')
+# 创建图片对象
+im = tk.PhotoImage(file='C:/Users/Administrator/Desktop/按钮.gif')
+# 通过image参数传递图片对象
+button = tk.Button(window,image=im,command=click_button).pack()
+# 启动窗口
+window.mainloop()
+</code></pre>
+
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/1106303294-1.gif" alt="结果" /></p>
+<p><strong>1. 扩展：按钮的布局</strong>
+按钮在主窗口中的布局，通常使用 grid() 函数来完成，该函数以网格状的形式（即行和列）来管理窗口的布局。</p>
+<p>grid() 布局管理器提供了一个<strong>sticky</strong>参数，通过该参数可以设置按钮的方位，该参数默认将控件设置居中，其他参数值有 N/S/W/E（上/下/左/右），而且可以组合在一起使用，比如 NW/WE/SE/SW/NE 等，这与anchor参数控制文本的显示位置，有着异曲同工之妙。如下图所示：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/1106303229-2.gif" alt="按钮方位" /></p>
+<p>示例：</p>
+<pre><code>import tkinter as tk
+from tkinter import messagebox
+
+win = tk.Tk()
+win.title(&quot;C语言中文网&quot;)
+win.iconbitmap('C:/Users/Administrator/Desktop/C语言中文网logo.ico')
+win.geometry('400x200+100+100')
+win.resizable(0,0)
+
+# 将俩个标签分别布置在第一行、第二行
+tk.Label(win, text=&quot;账号：&quot;).grid(row=0)
+tk.Label(win, text=&quot;密码：&quot;).grid(row=1)
+# 创建输入框控件
+e1 = tk.Entry(win)
+# 以 * 的形式显示密码
+e2 = tk.Entry(win,show='*')
+e1.grid(row=0, column=1, padx=10, pady=5)
+e2.grid(row=1, column=1, padx=10, pady=5)
+
+# 编写一个简单的回调函数
+def login():
+messagebox.showinfo('欢迎您到来')
+
+# 使用 grid()的函数来布局，并控制按钮的显示位置
+tk.Button(win, text=&quot;登录&quot;, width=10, command=login).grid(row=3, column=0, sticky=&quot;w&quot;, padx=10, pady=5)
+tk.Button(win, text=&quot;退出&quot;, width=10, command=win.quit).grid(row=3, column=1, sticky=&quot;e&quot;, padx=10, pady=5)
+
+win.mainloop()
+</code></pre>
+
+<p>程序运行结果：</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/220105/1106304545-3.gif" alt="结果" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

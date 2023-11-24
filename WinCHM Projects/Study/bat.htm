@@ -1,0 +1,610 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+<title>bat</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>bat脚本编辑</h1>
+<ul>
+<li>
+<p>显示中文</p>
+<pre><code>chcp 65001
+</code></pre>
+
+</li>
+<li>
+<p>注解</p>
+<pre><code>::
+</code></pre>
+
+</li>
+<li>
+<p>输出提示信息 </p>
+<pre><code>ECHO 信息内容
+</code></pre>
+
+</li>
+<li>
+<p>关闭DOS命令提示符 </p>
+<pre><code>在DOS提示符状态下键入ECHO OFF，能够关闭DOS提示符的显示使屏幕只留下光标，直至键入ECHO ON，提示符才会重新出现
+</code></pre>
+
+</li>
+<li>
+<p>输出空行，即相当于输入一个回车</p>
+<pre><code> ECHO．
+
+值得注意的是命令行中的**“．”**要紧跟在ECHO后面中间不能有空格，否则“．”将被当作提示信息输出到屏幕。
+</code></pre>
+
+</li>
+<li>
+<p>建立新文件或增加文件内容 </p>
+<p>格式：</p>
+<pre><code>- ECHO 文件内容&gt;文件名      
+
+- ECHO 文件内容&gt;&gt;文件名
+</code></pre>
+
+</li>
+<li>
+<p>PAUSE</p>
+<pre><code>PAUSE 运行显示：请按任意键继续. . .
+</code></pre>
+
+</li>
+<li>
+<p>ERRORLEVEL 程序返回码</p>
+<pre><code>echo %errorlevel%
+每个命令运行结束，可以用这个命令行格式查看返回码
+用于判断刚才的命令是否执行成功
+默认值为0，一般命令执行出错会设 errorlevel 为1
+choice配合使用
+
+案例：
+choice /d Y /t 1 /c YN /m Y打开，N关闭
+if %errorlevel% equ 1 goto LOGOPEN
+if %errorlevel% equ 2 goto LOGON
+</code></pre>
+
+</li>
+<li>
+<p>TITLE 设置cmd窗口的标题</p>
+<pre><code>title 新标题        #可以看到cmd窗口的标题栏变了
+</code></pre>
+
+</li>
+<li>
+<p>COLOR 设置默认的控制台前景和背景颜色</p>
+<pre><code>COLOR [attr]
+  attr        指定控制台输出的颜色属性
+颜色属性由两个十六进制数字指定 -- 第一个为背景，第二个则为
+前景。每个数字可以为以下任何值之一:
+    0 = 黑色       8 = 灰色
+    1 = 蓝色       9 = 淡蓝色
+    2 = 绿色       A = 淡绿色
+    3 = 湖蓝色    B = 淡浅绿色
+    4 = 红色       C = 淡红色
+    5 = 紫色       D = 淡紫色
+    6 = 黄色       E = 淡黄色
+    7 = 白色       F = 亮白色
+
+如果没有给定任何参数，该命令会将颜色还原到 CMD.EXE 启动时
+的颜色。这个值来自当前控制台窗口、/T 开关或
+DefaultColor 注册表值。
+如果用相同的前景和背景颜色来执行 COLOR 命令，COLOR 命令
+会将 ERRORLEVEL 设置为 1。
+例如: &quot;COLOR fc&quot; 在亮白色上产生亮红色
+</code></pre>
+
+</li>
+<li>
+<p>GOTO 会点编程的朋友就会知道这是跳转的意思</p>
+<pre><code>if {%1}=={} goto noparms
+if &quot;%2&quot;==&quot;&quot; goto noparms
+
+标签的名字可以随便起，但是最好是有意义的字符串啦，前加个冒号用来表示这个字符串是标签，goto命令就是根据这个冒号（:）来寻找下一步跳到到那里。最好有一些说明这样你别人看起来才会理解你的意图啊。
+@echo off
+:start
+set /a var+=1
+echo %var%
+if %var% leq 3 GOTO start
+pause
+</code></pre>
+
+</li>
+<li>
+<p>start 命令</p>
+<pre><code>批处理中调用外部程序的命令（该外部程序在新窗口中运行，批处理程序继续往下执行，不理会外部程序的运行状况），如果直接运行外部程序则必须等外部程序完成后才继续执行剩下的指令
+例：start explorer d:\
+调用图形界面打开D盘
+</code></pre>
+
+</li>
+<li>
+<p>pushd 和 popd</p>
+<pre><code>切换当前目录
+@echo off
+c: &amp; cd\ &amp; md mp3       #在 C:\ 建立 mp3 文件夹
+md d:\mp4               #在 D:\ 建立 mp4 文件夹
+cd /d d:\mp4            #更改当前目录为 d:\mp4
+pushd c:\mp3            #保存当前目录，并切换当前目录为 c:\mp3
+popd                    #恢复当前目录为刚才保存的 d:\mp4
+一般用处不大，在当前目录名不确定时，会有点帮助。（dos编程中很有用）
+</code></pre>
+
+</li>
+<li>
+<p>IF 条件判断语句</p>
+<pre><code>语法格式如下：
+IF [NOT] ERRORLEVEL number command
+IF [NOT] string1==string2 command
+IF [NOT] EXIST filename command
+
+(1) IF [NOT] ERRORLEVEL number command
+IF ERRORLEVEL这个句子必须放在某一个命令的后面，执行命令后由IF ERRORLEVEL 来判断命令的返回值。
+Number的数字取值范围0~255，判断时值的排列顺序应该由大到小。返回的值大于等于指定的值时，条件成立
+
+(2) IF [NOT] string1==string2 command
+string1和string2都为字符的数据，英文内字符的大小写将看作不同，这个条件中的等于号必须是两个（绝对相等的意思）
+条件相等后即执行后面的command
+检测当前变量的值做出判断，为了防止字符串中含有空格，可用以下格式
+if [NOT] {string1}=={string2} command
+if [NOT] [string1]==[string2] command
+if [NOT] &quot;string1&quot;==&quot;string2&quot; command
+这种写法实际上将括号或引号当成字符串的一部分了，只要等号左右两边一致就行了，比如下面的写法就不行：
+if {string1}==[string2] command
+
+(3) IF [NOT] EXIST filename command
+EXIST filename为文件或目录存在的意思
+echo off
+IF EXIST autoexec.bat echo 文件存在！
+IF not EXIST autoexec.bat echo 文件不存在！
+这个批处理大家可以放在C盘和D盘分别执行，看看效果
+</code></pre>
+
+</li>
+<li>
+<p>@  命令行回显屏蔽符</p>
+<pre><code>这个字符在批处理中的意思是关闭当前行的回显
+ECHO OFF可以关闭掉整个批处理命令的回显，但不能关掉ECHO OFF这个命令，现在我们在ECHO OFF这个命令前加个@，就可以达到所有命令均不回显的要求
+</code></pre>
+
+</li>
+<li>
+<p>%  批处理变量引导符</p>
+<pre><code>%* 从第一个参数开始的所有参数
+参数%0具有特殊的功能，可以调用批处理自身，以达到批处理本身循环的目的，也可以复制文件自身等等
+</code></pre>
+
+</li>
+<li>
+<p>“&gt; ”  重定向符</p>
+<pre><code>使用命令：echo hello &gt;1.txt将建立文件1.txt，内容为”hello “（注意行尾有一空格）
+使用命令：echo hello&gt;1.txt将建立文件1.txt，内容为”hello“（注意行尾没有空格）
+</code></pre>
+
+</li>
+<li>
+<blockquote>
+<blockquote>
+<p>重定向符</p>
+</blockquote>
+</blockquote>
+<pre><code>这个符号的作用和&gt;有点类似，但他们的区别是&gt;&gt;是传递并在文件的末尾追加，而&gt;是覆盖
+echo hello &gt; 1.txt
+echo world &gt;&gt;1.txt
+这时候1.txt 内容如下:
+hello
+world
+</code></pre>
+
+</li>
+<li>
+<p>自定义变量</p>
+<pre><code>自定义变量就是由我们来给他赋予值的变量
+要使用自定义变量就得使用set命令了
+
+@echo off
+set var=我是值
+echo %var%
+pause
+
+如果我们想让用户手工输入变量的值,而不是在代码里指定,可以用用set命令的/p参数
+@echo off
+set /p var=请输入变量的值
+echo %var%
+pause
+
+var变量名  =号右边的是提示语,不是变量的值
+变量的值由我们运行后自己用键盘输入! 
+</code></pre>
+
+</li>
+<li>
+<p>if…else…条件语句</p>
+<pre><code>DOS条件语句主要有以下形式：
+IF [NOT] ERRORLEVEL number command
+IF [NOT] string1==string2 command
+IF [NOT] EXIST filename command
+增强用法：IF [/I] string1 compare-op string2 command
+增强用法中加上/I就不区分大小写了!
+增强用法中还有一些用来判断数字的符号
+
+EQU - 等于
+NEQ - 不等于
+LSS - 小于
+LEQ - 小于或等于
+GTR - 大于
+GEQ - 大于或等于
+
+IF EXIST filename (
+    del filename
+) ELSE (
+    echo filename missing
+)
+</code></pre>
+
+</li>
+<li>
+<p>随机数（%random%）的应用技巧</p>
+<p><code>::</code></p>
+</li>
+<li>
+<p>choice命令详解</p>
+<pre><code>::choice /d 1 /t 1 /c 123 /m 1创建目录或文本，2导出目录，3取消
+choice /c 123 /m 1创建目录或文本，2导出目录，3取消
+choice [/C choices] [/N] [/CS] [/T timeout /D choice] [/M text]
+choice 命令可以让用户输入一个字符，从而运行不同的命令
+
+$ choice /?
+CHOICE [/C choices] [/N] [/CS] [/T timeout /D choice] [/M text]
+
+描述:
+    该工具允许用户从选择列表选择一个项目并返回所选项目的索引。
+
+参数列表:
+   /C    choices       指定要创建的选项列表。默认列表是 &quot;YN&quot;。
+   /N                  在提示符中隐藏选项列表。提示前面的消息得到显示，
+                       选项依旧处于启用状态。
+   /CS                 允许选择分大小写的选项。在默认情况下，这个工具
+                       是不分大小写的。
+   /T    timeout       做出默认选择之前，暂停的秒数。可接受的值是从 0
+                       到 9999。如果指定了 0，就不会有暂停，默认选项
+                       会得到选择。
+   /D    choice        在 nnnn 秒之后指定默认选项。字符必须在用 /C 选
+                       项指定的一组选择中; 同时，必须用 /T 指定 nnnn。
+   /M    text          指定提示之前要显示的消息。如果没有指定，工具只
+                       显示提示。
+   /?                  显示此帮助消息。
+
+   注意:
+   ERRORLEVEL 环境变量被设置为从选择集选择的键索引。列出的第一个选
+   择返回 1，第二个选择返回 2，等等。如果用户按的键不是有效的选择，
+   该工具会发出警告响声。如果该工具检测到错误状态，它会返回 255 的
+   ERRORLEVEL 值。如果用户按 Ctrl+Break 或 Ctrl+C 键，该工具会返回 0
+   的 ERRORLEVEL 值。在一个批程序中使用 ERRORLEVEL 参数时，将参数降
+   序排列。
+
+示例:
+   CHOICE /?
+   CHOICE /C YNC /M &quot;确认请按 Y，否请按 N，或者取消请按 C。&quot;
+   CHOICE /T 10 /C ync /CS /D y
+   CHOICE /C ab /M &quot;选项 1 请选择 a，选项 2 请选择 b。&quot;
+   CHOICE /C ab /N /M &quot;选项 1 请选择 a，选项 2 请选择 b。&quot;
+</code></pre>
+
+</li>
+<li>
+<p>exit 命令</p>
+<p><code>::</code></p>
+</li>
+<li>
+<p>shutdown命令</p>
+<p><code>::</code></p>
+</li>
+<li>
+<p>注解</p>
+<p><code>::</code></p>
+</li>
+<li>
+<p>注解</p>
+<p><code>::</code></p>
+</li>
+<li>
+<p>注解</p>
+<p><code>::</code></p>
+</li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

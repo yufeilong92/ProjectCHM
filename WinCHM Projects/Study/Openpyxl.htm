@@ -1,0 +1,429 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Openpyxl</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Openpyxl</h1>
+<p>模块属于第三方模块，是一个在 python 中能够处理 excel 文件的模块，还有比较出名的是xlrd、xlwt 分别控制excel文件的读写，这俩个能够兼容所有版本的文件。openpyxl 针对 excel 2003版本之前的兼容性可能不好 但是功能更加强大。 </p>
+<h2>安装方式</h2>
+<pre><code>  pip install openpyxl  
+</code></pre>
+
+<h2>使用方式</h2>
+<h3>创建 .xlsx</h3>
+<pre><code>import openpyxl
+workbook = openpyxl.workbook()
+</code></pre>
+
+<h4>创建工作表Sheet</h4>
+<p>xlsx文件工作表的索引是从0开始的</p>
+<pre><code># 第一个工作表后面创建工作表
+sheet_name = ‘sheet1’
+sheet = workbook.create_sheet(sheet_name)
+
+# Equal to the following
+# 工作表名称列表
+sheet_names = workbook.get_sheet_names()
+sheet = workbook.create_sheet(sheet_name, index=len(sheet_names))
+
+# 第一个工作表前创建
+sheet = workbook.create_sheet(sheet_name, 0)
+# sheet = workbook.create_sheet(sheet_name, index=0)
+
+# 使用新建xlsx文件后活动状态的空白工作表
+sheet = workbook.active
+sheet.title = sheet_name
+
+ ws1 = wb.create_sheet() # 插入到结尾 (默认)
+# or
+ ws2 = wb.create_sheet(0) # 插入到启始位置
+</code></pre>
+
+<h3>在创建工作表时，会自动给它们一个名称。它们按顺序编号(表格，表格1，表格2，……)。你可以在任何时候用title属性改变这个名字:</h3>
+<pre><code> ws.title = &quot;New Title&quot;
+</code></pre>
+
+<h3>为工作表指定名称后，可以将其作为工作簿的键或使用openpyxl.workbook.Workbook.get_sheet_by_name()/sheetnames方法：</h3>
+<pre><code>&gt;&gt;&gt; ws3 = wb[&quot;New Title&quot;]
+&gt;&gt;&gt; ws4 = wb.get_sheet_by_name(&quot;New Title&quot;)
+&gt;&gt;&gt; ws is ws3 is ws4
+True
+</code></pre>
+
+<h3>您可以使用openpyxsl .workbook. workbook. get_sheet_names()方法查看工作簿中所有工作表的名称：</h3>
+<pre><code>&gt;&gt;&gt; print(wb.get_sheet_names())
+['Sheet2', 'New Title', 'Sheet1']
+</code></pre>
+
+<h3>可以循环遍历工作表：</h3>
+<pre><code>&gt;&gt;&gt; for sheet in wb:
+... print(sheet.title)
+</code></pre>
+
+<h3>保存Workbook</h3>
+<pre><code>excel_file = ‘excel1.xlsx’
+workbook.save(excel_file)
+</code></pre>
+
+<h3>关闭 Workbook</h3>
+<pre><code>workbook.close()
+</code></pre>
+
+<h3>打开.xlsx</h3>
+<pre><code>excel_file = ‘excel1.xlsx’
+workbook = openpyxl.load_workbook(excel_file)
+</code></pre>
+
+<h3>使用工作表</h3>
+<pre><code># 使用当前活动工作表
+sheet = workbook.active
+
+# 使用指定已存在的工作表
+sheet_name = ‘sheet1’
+sheet = workbook.get_sheet_by_name(sheet_name)
+
+# 判断工作表是否已存在
+sheet_names = workbook.get_sheet_names()
+sheet_existed = sheet_name in sheet_names
+</code></pre>
+
+<h3>修改工作表单元格内容</h3>
+<p>xlsx文件工作表的单元格索引是从1开始的。</p>
+<pre><code># data = [[‘Name’, ‘Sex’, ‘Age’],
+#       [‘Jack’, ‘M’, ‘20’], [‘Ross’, ‘F’, ‘19’], [‘Peter’, ‘M’, ‘25’]]
+data = [[‘Jack’, ‘M’, ‘20’], [‘Ross’, ‘F’, ‘19’], [‘Peter’, ‘M’, ‘25’]]
+for row, item in enumerate(data):
+for column, cell in enumerate(item):
+sheet.cell(row=row + 1, column=column + 1, value=cell)
+
+sh.cell(row_init, 4).value = f&quot;{baseHear}{web_url.strip()}&quot;
+</code></pre>
+
+<h3>添加空白行</h3>
+<pre><code>workbook.remove(sheet_name)
+# workboo.remove(worksheet=sheet_name)
+</code></pre>
+
+<h3>读取表的当前行与列</h3>
+<pre><code>sh = wb[sheets[sheetIndex]]
+rows = sh.rows
+columns = sh.columns
+print(f&quot;{rows},{columns}&quot;)
+</code></pre>
+
+<h2>示例</h2>
+<pre><code>def save_to_excel(data, excel_file, sheet_name='sheet1'):
+# data is like [[row1_column1, row1_column2, row1_column3],
+#               [row2_column1, row2_column2, row2_column3],
+#               [...], ...]
+if os.path.exists(excel_file):
+    workbook = load_excel(excel_file)
+else:
+    workbook = openpyxl.Workbook()
+sheet_names = workbook.get_sheet_names()
+if sheet_name in sheet_names:
+    sheet = workbook.get_sheet_by_name(sheet_name)
+else:        
+    sheet = workbook.create_sheet(sheet_name)
+    # sheet = workbook.create_sheet(sheet_name, len(workbook.get_sheet_names()))
+    # sheet = workbook.active
+    # sheet.title = sheet_name
+for row, item in enumerate(data):
+    for column, cell in enumerate(item):
+        sheet.cell(row=row + 1, column=column + 1, value=cell)
+workbook.save(excel_file)
+workbook.close()
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
